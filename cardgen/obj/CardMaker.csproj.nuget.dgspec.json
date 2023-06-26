@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\c#\\games\\AnimalPlanet\\AnimalPlanet\\CardMaker.csproj": {}
+    "C:\\Projects\\c#\\games\\AnimalPlanet\\cardgen\\CardMaker.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\c#\\games\\AnimalPlanet\\AnimalPlanet\\CardMaker.csproj": {
+    "C:\\Projects\\c#\\games\\AnimalPlanet\\cardgen\\CardMaker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\c#\\games\\AnimalPlanet\\AnimalPlanet\\CardMaker.csproj",
+        "projectUniqueName": "C:\\Projects\\c#\\games\\AnimalPlanet\\cardgen\\CardMaker.csproj",
         "projectName": "CardMaker",
-        "projectPath": "C:\\Projects\\c#\\games\\AnimalPlanet\\AnimalPlanet\\CardMaker.csproj",
+        "projectPath": "C:\\Projects\\c#\\games\\AnimalPlanet\\cardgen\\CardMaker.csproj",
         "packagesPath": "C:\\Users\\andrew\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\c#\\games\\AnimalPlanet\\AnimalPlanet\\obj\\",
+        "outputPath": "C:\\Projects\\c#\\games\\AnimalPlanet\\cardgen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

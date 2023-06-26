@@ -28,6 +28,8 @@ namespace AnimalPlanet
 
 
 			Console.OutputEncoding = Encoding.UTF8;
+			var writer = new StringWriter();
+			Console.SetOut(writer);
 			var foo = new PrivateFontCollection();
 			foo.AddFontFile(fontPath);
 			font = new Font((FontFamily)foo.Families[0], 14f);
@@ -40,19 +42,35 @@ namespace AnimalPlanet
 			foreach (XmlNode cardNode in cardNodes)
 			{
 				Console.SetCursorPosition(0, 0);
-				string name = cardNode.SelectSingleNode("name").InnerText;
-				int speed = int.Parse(cardNode.SelectSingleNode("speed").InnerText);
-				int strength = int.Parse(cardNode.SelectSingleNode("strength").InnerText);
-				string[] zones = cardNode.SelectSingleNode("zones").InnerText.Split(' ');
-				string[] kingdoms = cardNode.SelectSingleNode("kingdoms").InnerText.Split(' ');
-				bool rare = (int.Parse(cardNode.SelectSingleNode("rare").InnerText)==1)? true : false;
+				node++;
+				Console.WriteLine("Card #" + node);
+				string name = "noname";
+				int speed = -1;
+				int strength = -1;
+				string[] zones = { "nozone" };
+				string[] kingdoms = { "nokingdom" };
+				bool rare = false;
+
+
+				Console.Write("\tName: "); try { name = cardNode.SelectSingleNode("name").InnerText; Console.WriteLine(name); } catch { Console.WriteLine("FAILED"); }
+				Console.Write("\tSpeed: "); try { speed = int.Parse(cardNode.SelectSingleNode("speed").InnerText); Console.WriteLine(speed); } catch { Console.WriteLine("FAILED"); }
+				Console.Write("\tStrength: "); try { strength = int.Parse(cardNode.SelectSingleNode("strength").InnerText); Console.WriteLine(strength); } catch { Console.WriteLine("FAILED"); }
+				Console.Write("\tZones: "); try { zones = cardNode.SelectSingleNode("zones").InnerText.Split(' '); Console.WriteLine(zones.Length); } catch { Console.WriteLine("FAILED"); }
+				Console.Write("\tKingdoms: "); try { kingdoms = cardNode.SelectSingleNode("kingdoms").InnerText.Split(' '); Console.WriteLine(kingdoms.Length); } catch { Console.WriteLine("FAILED"); }
+				Console.Write("\tRare: "); try { rare = (int.Parse(cardNode.SelectSingleNode("rare").InnerText) == 1) ? true : false; Console.WriteLine(rare); } catch { Console.WriteLine("FAILED"); }
+				
+				
+				
+				
+				 
 
 
 				MakeCard(name, speed, strength, zones, kingdoms, rare);
-				Console.Write(node + "/" + cardNodes.Count);
+				
 			}
 			Console.SetCursorPosition(0, 0);
 			Console.WriteLine("Done");
+			File.WriteAllText("./src/LOG.txt", writer.ToString());
 		}
 		static void MakeCard(string name,int speed,int strength, string[] zones, string[] kingdoms, bool rare) 
 		{
@@ -92,7 +110,7 @@ namespace AnimalPlanet
 				height += 30;
 			}
 			//---------------------------------------------------------------------------save
-			card.Save("./cards/"+name+".png",ImageFormat.Png);
+			try { card.Save("./cards/" + name + ".png", ImageFormat.Png); }catch (Exception ex) { Console.WriteLine("Cant save: " + ex.Message); }
 			g.Flush();
 		}
 	}

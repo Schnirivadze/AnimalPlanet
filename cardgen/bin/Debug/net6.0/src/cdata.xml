@@ -9,13 +9,13 @@
     <font-path>./src/bookantiqua.ttf</font-path>
 </media-info>
 <cards>
-    <card>
-        <name>Сетчатый жираф</name>
-        <speed>6</speed>
-        <strength>45</strength>
-        <zones>Степь</zones>
-        <kingdoms>Зверь</kingdoms>
-        <rare>0</rare>
+   <card>
+        <name></name>
+        <speed></speed>
+        <strength></strength>
+        <zones></zones>
+        <kingdoms></kingdoms>
+        <rare></rare>
     </card>
 </cards>
 </root>
